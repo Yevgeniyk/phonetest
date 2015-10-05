@@ -1,25 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1112" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter full URL " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-b7-weG">
+                                <rect key="frame" x="20" y="20" width="26" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="url"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNh-JV-EjZ">
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ghz-6e-WYf"/>
+                                </constraints>
+                                <state key="normal" title="Go!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ghz-6e-WYf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ghz-6e-WYf"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="OnClick:" destination="BYZ-38-t0r" eventType="touchDown" id="h8Z-jT-lvN"/>
+                                </connections>
+                            </button>
+                            <webView multipleTouchEnabled="YES" contentMode="top" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNu-dx-ALO">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" label="Window 1"/>
+                        <constraints>
+                            <constraint firstItem="lnK-b7-weG" firstAttribute="top" secondItem="UNh-JV-EjZ" secondAttribute="top" id="3xF-d8-LM6"/>
+                            <constraint firstItem="wNu-dx-ALO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5oZ-zJ-uNL"/>
+                            <constraint firstItem="lnK-b7-weG" firstAttribute="bottom" secondItem="UNh-JV-EjZ" secondAttribute="bottom" id="Gnr-B2-I1j"/>
+                            <constraint firstItem="lnK-b7-weG" firstAttribute="leading" secondItem="wNu-dx-ALO" secondAttribute="leading" id="Ouv-bv-vDD"/>
+                            <constraint firstItem="wNu-dx-ALO" firstAttribute="top" secondItem="lnK-b7-weG" secondAttribute="bottom" constant="10" id="XvS-d4-e3j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wNu-dx-ALO" secondAttribute="trailing" id="Z9L-If-RZ4"/>
+                            <constraint firstItem="UNh-JV-EjZ" firstAttribute="leading" secondItem="lnK-b7-weG" secondAttribute="trailing" constant="10" id="fAH-0m-w8Z"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wNu-dx-ALO" secondAttribute="bottom" id="gnT-yc-v45"/>
+                            <constraint firstItem="UNh-JV-EjZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lF4-IP-dLf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UNh-JV-EjZ" secondAttribute="trailing" id="spg-NG-hy8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lnK-b7-weG"/>
+                                <exclude reference="UNh-JV-EjZ"/>
+                                <exclude reference="wNu-dx-ALO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="gnT-yc-v45"/>
+                                <exclude reference="fAH-0m-w8Z"/>
+                                <exclude reference="lF4-IP-dLf"/>
+                                <exclude reference="spg-NG-hy8"/>
+                                <exclude reference="3xF-d8-LM6"/>
+                                <exclude reference="Gnr-B2-I1j"/>
+                                <exclude reference="Ouv-bv-vDD"/>
+                                <exclude reference="5oZ-zJ-uNL"/>
+                                <exclude reference="XvS-d4-e3j"/>
+                                <exclude reference="Z9L-If-RZ4"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lnK-b7-weG"/>
+                                <include reference="UNh-JV-EjZ"/>
+                                <include reference="wNu-dx-ALO"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="gnT-yc-v45"/>
+                                <include reference="fAH-0m-w8Z"/>
+                                <include reference="lF4-IP-dLf"/>
+                                <include reference="spg-NG-hy8"/>
+                                <include reference="3xF-d8-LM6"/>
+                                <include reference="Gnr-B2-I1j"/>
+                                <include reference="Ouv-bv-vDD"/>
+                                <include reference="5oZ-zJ-uNL"/>
+                                <include reference="XvS-d4-e3j"/>
+                                <include reference="Z9L-If-RZ4"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="bGo" destination="UNh-JV-EjZ" id="TQb-p2-Zip"/>
+                        <outlet property="eText" destination="lnK-b7-weG" id="cuG-rg-8IL"/>
+                        <outlet property="webView" destination="wNu-dx-ALO" id="FYg-a5-rRV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-4.5" y="219"/>
         </scene>
     </scenes>
 </document>
