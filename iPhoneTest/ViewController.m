@@ -33,10 +33,33 @@
 }
 
 - (IBAction)OnClick:(id)sender {
-    NSURL* nsUrl = [NSURL URLWithString:eText.text];
+
+    NSString *strURL = @"";
+    
+    if ([eText.text hasPrefix:@"http://"])
+    {
+        strURL = eText.text;
+    }
+    else
+    {
+        strURL = @"http://";
+        strURL = [strURL stringByAppendingString:eText.text];
+    }
+    
+    
+    //    NSURL* nsUrl = [NSURL URLWithString:eText.text];
+    NSURL* nsUrl = [NSURL URLWithString:strURL];
+    
     NSURLRequest* request = [NSURLRequest requestWithURL:nsUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
     
     [webView loadRequest:request ];
+    
+    
+    
+//    NSURL* nsUrl = [NSURL URLWithString:eText.text];
+//    NSURLRequest* request = [NSURLRequest requestWithURL:nsUrl cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30];
+    
+//    [webView loadRequest:request ];
   //  [ eText setText:@"ss"];
 }
 @end
